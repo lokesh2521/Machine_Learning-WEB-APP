@@ -139,12 +139,14 @@ if (selected == 'Heart Disease Prediction'):
      
     # code for Prediction
     heart_diagnosis = ''
-    
+
+    input_data = [float(age), float(sex), float(cp), float(trestbps), float(chol), float(fbs), float(restecg),
+                     float(thalach), float(exang), float(oldpeak), float(slope), float(ca), float(thal)]
     # creating a button for Prediction
     
     if st.button('Heart Disease Test Result'):
-        heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg,thalach,exang,oldpeak,slope,ca,thal]])                          
-        
+        heart_prediction = heart_disease_model.predict([input_data])
+            
         if (heart_prediction[0] == 1):
           heart_diagnosis = 'The person is having heart disease'
         else:
@@ -233,12 +235,10 @@ if (selected == "Parkinsons Prediction"):
     
     # code for Prediction
     parkinsons_diagnosis = ''
-    input_data = [float(age), float(sex), float(cp), float(trestbps), float(chol), float(fbs), float(restecg),
-                     float(thalach), float(exang), float(oldpeak), float(slope), float(ca), float(thal)]
     
     # creating a button for Prediction    
     if st.button("Parkinson's Test Result"):
-        parkinsons_prediction = parkinsons_model.predict([input_data])                          
+        parkinsons_prediction = parkinsons_model.predict([[fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ,DDP,Shimmer,Shimmer_dB,APQ3,APQ5,APQ,DDA,NHR,HNR,RPDE,DFA,spread1,spread2,D2,PPE]])                          
         
         if (parkinsons_prediction[0] == 1):
           parkinsons_diagnosis = "The person has Parkinson's disease"
