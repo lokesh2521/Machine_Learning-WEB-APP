@@ -136,22 +136,18 @@ if (selected == 'Heart Disease Prediction'):
         
         
      
-     
-    # code for Prediction
-    heart_diagnosis = ''
+    heart_diagnosis =''
 
-    input_data = [int(age), int(sex), int(cp), int(trestbps), int(chol), int(fbs), int(restecg),
+    if st.button('Heart Prediction System'): # Convert inputs to numeric values 
+       input_data = [int(age), int(sex), int(cp), int(trestbps), int(chol), int(fbs), int(restecg),
                      int(thalach), int(exang), float(oldpeak), int(slope), int(ca), int(thal)]
-    # creating a button for Prediction
-    
-    if st.button('Heart Disease Test Result'):
-        heart_prediction = heart_disease_model.predict([input_data])
-            
-        if (heart_prediction[0] == 1):
-          heart_diagnosis = 'The person is having heart disease'
-        else:
-          heart_diagnosis = 'The person does not have any heart disease'
-        
+       # Predict with the model
+       
+       heart_prediction = heart_model.predict([input_data]) 
+       if heart_prediction[0] == 1:
+           heart_diagnosis = 'The person is having heart disease' 
+       else: 
+           heart_diagnosis = 'The person does not have any heart disease' 
     st.success(heart_diagnosis)
         
     
