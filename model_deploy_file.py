@@ -143,7 +143,7 @@ if (selected == 'Heart Disease Prediction'):
                      int(thalach), int(exang), float(oldpeak), int(slope), int(ca), int(thal)]
        # Predict with the model
        
-       heart_prediction = heart_model.predict([input_data]) 
+       heart_prediction = heart_disease_model.predict([input_data]) 
        if heart_prediction[0] == 1:
            heart_diagnosis = 'The person is having heart disease' 
        else: 
