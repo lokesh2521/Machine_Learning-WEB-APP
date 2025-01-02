@@ -233,10 +233,12 @@ if (selected == "Parkinsons Prediction"):
     
     # code for Prediction
     parkinsons_diagnosis = ''
+    input_data = [float(age), float(sex), float(cp), float(trestbps), float(chol), float(fbs), float(restecg),
+                     float(thalach), float(exang), float(oldpeak), float(slope), float(ca), float(thal)]
     
     # creating a button for Prediction    
     if st.button("Parkinson's Test Result"):
-        parkinsons_prediction = parkinsons_model.predict([[fo, fhi, flo, Jitter_percent, Jitter_Abs, RAP, PPQ,DDP,Shimmer,Shimmer_dB,APQ3,APQ5,APQ,DDA,NHR,HNR,RPDE,DFA,spread1,spread2,D2,PPE]])                          
+        parkinsons_prediction = parkinsons_model.predict([input_data])                          
         
         if (parkinsons_prediction[0] == 1):
           parkinsons_diagnosis = "The person has Parkinson's disease"
