@@ -140,8 +140,8 @@ if (selected == 'Heart Disease Prediction'):
     # code for Prediction
     heart_diagnosis = ''
 
-    input_data = [float(age), float(sex), float(cp), float(trestbps), float(chol), float(fbs), float(restecg),
-                     float(thalach), float(exang), float(oldpeak), float(slope), float(ca), float(thal)]
+    input_data = [int(age), int(sex), int(cp), int(trestbps), int(chol), int(fbs), int(restecg),
+                     int(thalach), int(exang), float(oldpeak), int(slope), int(ca), int(thal)]
     # creating a button for Prediction
     
     if st.button('Heart Disease Test Result'):
